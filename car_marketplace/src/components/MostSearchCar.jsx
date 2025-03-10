@@ -16,8 +16,11 @@ function MostSearchCar() {
       <h2 className="font-bold text-3xl text-center pt-10">
         Most Searched Cars
       </h2>
-      <div className="mt-10 mx-20">
-        <Carousel className=''>
+      <div className="mt-10 mx-24">
+        <Carousel opts={{
+    align: "start",
+    loop: true,
+  }}>
           <CarouselContent className="">
             {FakerData.CarList.map((car, index) => (
             <CarouselItem className="basis-1/2 sm:basis-1/3 md:basis-1/4 flex items-center justify-center">

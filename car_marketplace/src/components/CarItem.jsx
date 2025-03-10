@@ -6,8 +6,8 @@ import { GoGear } from "react-icons/go";
 
 function CarItem({car}) {
 return (
-    <div className='w-[300px] sm:w-[200]'>
-        <img src={car?.image} width={300} height={250} alt='car_image' className='rounded-t-md hover:scale-[1.0] transition-all'/>
+    <div className='w-[300px] sm:w-[200] hover:shadow-xl hover:border-2 transition-all border-2 border-gray-200 rounded-md '>
+        <img src={car?.image} width={300} height={250} alt='car_image' className='rounded-t-md  transition-all'/>
         <div className='m-2'>
             <h2 className='text-md text-start font-bold text-gray-600 mb-2'>{car?.name}</h2>
             </div>
