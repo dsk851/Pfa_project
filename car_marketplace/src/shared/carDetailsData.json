@@ -1,0 +1,198 @@
+{
+  "carDetailsData": [
+    {
+      "label": "Listing Title",
+      "name": "title",
+      "type": "text",
+      "placeholder": "E.g.: 2020 BMW 3 Series",
+      "required": true,
+      "column": 1,
+      "icon": "FaCar"
+    },
+    {
+      "label": "Tagline",
+      "name": "tagline",
+      "type": "text",
+      "placeholder": "E.g.: Best condition, like new!",
+      "required": false,
+      "column": 1,
+      "icon": "FaQuoteRight"
+    },
+    {
+      "label": "Original Price",
+      "name": "original_price",
+      "type": "number",
+      "placeholder": "E.g.: 30,000",
+      "suffix": "$",
+      "required": false,
+      "column": 1,
+      "icon": "FaDollarSign"
+    },
+    {
+      "label": "Selling Price",
+      "name": "selling_price",
+      "type": "number",
+      "placeholder": "E.g.: 25,000",
+      "suffix": "$",
+      "required": true,
+      "column": 1,
+      "icon": "FaTag"
+    },
+    {
+      "label": "Category",
+      "name": "category",
+      "type": "select",
+      "options": ["Sedan", "SUV", "Truck", "Coupe", "Convertible", "Hatchback"],
+      "required": true,
+      "column": 2,
+      "icon": "FaLayerGroup"
+    },
+    {
+      "label": "Condition",
+      "name": "condition",
+      "type": "select",
+      "options": ["Excellent", "Good", "Fair", "Needs Repair"],
+      "required": true,
+      "column": 2,
+      "icon": "FaCheckCircle"
+    },
+    {
+      "label": "Make",
+      "name": "make",
+      "type": "select",
+      "options": ["Toyota", "Honda", "BMW", "Mercedes", "Audi", "Ford"],
+      "required": true,
+      "column": 2,
+      "icon": "FaIndustry"
+    },
+    {
+      "label": "Model",
+      "name": "model",
+      "type": "text",
+      "placeholder": "E.g.: Golf 7 GTI",
+      "required": true,
+      "column": 2,
+      "icon": "FaCarSide"
+    },
+    {
+      "label": "Year",
+      "name": "year",
+      "type": "number",
+      "min": 1980,
+      "max": 2025,
+      "placeholder": "E.g.: 2020",
+      "required": true,
+      "column": 2,
+      "icon": "FaCalendarAlt"
+    },
+    {
+      "label": "Type",
+      "name": "type",
+      "type": "select",
+      "options": ["New", "Used", "Certified Pre-Owned"],
+      "required": true,
+      "column": 2,
+      "icon": "FaCarBattery"
+    },
+    {
+      "label": "VIN (Vehicle Identification Number)",
+      "name": "vin",
+      "type": "text",
+      "placeholder": "E.g.: 1HGCM82633A123456",
+      "required": true,
+      "column": 2,
+      "icon": "FaBarcode"
+    },
+    {
+      "label": "Drive Type",
+      "name": "drive_type",
+      "type": "select",
+      "options": ["FWD", "RWD", "AWD", "4WD"],
+      "required": true,
+      "column": 2,
+      "icon": "FaRoad"
+    },
+    {
+      "label": "Fuel Type",
+      "name": "fuel_type",
+      "type": "select",
+      "options": ["Gasoline", "Diesel", "Electric", "Hybrid"],
+      "required": true,
+      "column": 3,
+      "icon": "FaGasPump"
+    },
+    {
+      "label": "Transmission",
+      "name": "transmission",
+      "type": "select",
+      "options": ["Manual", "Automatic"],
+      "required": true,
+      "column": 3,
+      "icon": "FaCogs"
+    },
+    {
+      "label": "Mileage",
+      "name": "mileage",
+      "type": "number",
+      "placeholder": "E.g.: 120000",
+      "suffix": "km",
+      "required": true,
+      "column": 3,
+      "icon": "FaTachometerAlt"
+    },
+    {
+      "label": "Engine Size",
+      "name": "engine_size",
+      "type": "text",
+      "placeholder": "E.g.: 2.0L Turbo",
+      "required": false,
+      "column": 3,
+      "icon": "FaWrench"
+    },
+    {
+      "label": "Cylinder",
+      "name": "cylinder",
+      "type": "select",
+      "options": ["3", "4", "6", "8", "12"],
+      "required": false,
+      "column": 3,
+      "icon": "FaCog"
+    },
+    {
+      "label": "Color",
+      "name": "color",
+      "type": "select",
+      "options": ["Black", "White", "Blue", "Red", "Silver", "Gray"],
+      "required": true,
+      "column": 3,
+      "icon": "FaPalette"
+    },
+    {
+      "label": "Number of Doors",
+      "name": "doors",
+      "type": "select",
+      "options": ["2", "4", "5"],
+      "required": true,
+      "column": 3,
+      "icon": "FaDoorOpen"
+    },
+    {
+      "label": "Offer Type",
+      "name": "offer_type",
+      "type": "select",
+      "options": ["For Sale", "For Rent", "Lease"],
+      "required": true,
+      "column": 4,
+      "icon": "FaHandshake"
+    },
+    {
+      "label": "Listing Description",
+      "name": "description",
+      "type": "textarea",
+      "placeholder": "Provide more details about the car, its features, and condition...",
+      "required": true,
+      "column": 4,
+      "icon": "FaInfoCircle"
+    }
+  ]
+}

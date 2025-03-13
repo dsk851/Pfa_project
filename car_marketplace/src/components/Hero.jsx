@@ -6,7 +6,7 @@ function Hero() {
     <div>
       <div className="relative flex flex-col items-center p-20 pt-10 pt w-full h-[600px] gap-4 bg-[#eef0fc]">
         <h2 className="text-lg">Buy or Rent a Car Near You!</h2>
-        <h2 className="text-[40px] text-center md:text-[60px] font-bold">
+        <h2 className="text-[30px] text-center md:text-[60px] font-bold">
           FIND YOUR DREAM CAR
         </h2>
         <Search />

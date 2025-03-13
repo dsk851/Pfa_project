@@ -1,0 +1,142 @@
+{
+  "carFeaturesData": [
+    {
+      "label": "Air Conditioner",
+      "name": "air_conditioner",
+      "type": "checkbox"
+    },
+    {
+      "label": "Leather Seats",
+      "name": "leather_seats",
+      "type": "checkbox"
+    },
+    {
+      "label": "Touchscreen Display",
+      "name": "touchscreen_display",
+      "type": "checkbox"
+    },
+    {
+      "label": "Child Safety Locks",
+      "name": "child_safety_locks",
+      "type": "checkbox"
+    },
+    {
+      "label": "Stability Control",
+      "name": "stability_control",
+      "type": "checkbox"
+    },
+    {
+      "label": "Rain Sensing Wiper",
+      "name": "rain_sensing_wiper",
+      "type": "checkbox"
+    },
+    {
+      "label": "Bluetooth",
+      "name": "bluetooth",
+      "type": "checkbox"
+    },
+    {
+      "label": "Vanity Mirror",
+      "name": "vanity_mirror",
+      "type": "checkbox"
+    },
+    {
+      "label": "Digital Odometer",
+      "name": "digital_odometer",
+      "type": "checkbox"
+    },
+    {
+      "label": "Panoramic Moonroof",
+      "name": "panoramic_moonroof",
+      "type": "checkbox"
+    },
+    {
+      "label": "Anti-lock Braking",
+      "name": "anti_lock_braking",
+      "type": "checkbox"
+    },
+    {
+      "label": "Driver Air Bag",
+      "name": "driver_air_bag",
+      "type": "checkbox"
+    },
+    {
+      "label": "Traction Control",
+      "name": "traction_control",
+      "type": "checkbox"
+    },
+    {
+      "label": "Rear Spoiler",
+      "name": "rear_spoiler",
+      "type": "checkbox"
+    },
+    {
+      "label": "Android Auto",
+      "name": "android_auto",
+      "type": "checkbox"
+    },
+    {
+      "label": "HomeLink",
+      "name": "homelink",
+      "type": "checkbox"
+    },
+    {
+      "label": "Heater",
+      "name": "heater",
+      "type": "checkbox"
+    },
+    {
+      "label": "Tachometer",
+      "name": "tachometer",
+      "type": "checkbox"
+    },
+    {
+      "label": "Brake Assist",
+      "name": "brake_assist",
+      "type": "checkbox"
+    },
+    {
+      "label": "Power Door Locks",
+      "name": "power_door_locks",
+      "type": "checkbox"
+    },
+    {
+      "label": "Fog Lights Front",
+      "name": "fog_lights_front",
+      "type": "checkbox"
+    },
+    {
+      "label": "Windows - Electric",
+      "name": "windows_electric",
+      "type": "checkbox"
+    },
+    {
+      "label": "Apple CarPlay",
+      "name": "apple_carplay",
+      "type": "checkbox"
+    },
+    {
+      "label": "Power Steering",
+      "name": "power_steering",
+      "type": "checkbox"
+    },
+    {
+      "label": "Number of Speakers",
+      "name": "num_speakers",
+      "type": "dropdown",
+      "options": ["2", "4", "6", "8", "10+"]
+    },
+    {
+      "label": "Sound System",
+      "name": "sound_system",
+      "type": "dropdown",
+      "options": ["Standard", "Bose", "Harman Kardon", "JBL", "Bang & Olufsen"]
+    },
+    {
+      "label": "Seat Material",
+      "name": "seat_material",
+      "type": "dropdown",
+      "options": ["Fabric", "Leather", "Synthetic Leather", "Alcantara"]
+    }
+  ]
+}

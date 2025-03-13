@@ -1,13 +1,15 @@
 import React from 'react'
 import { useUser, UserButton, SignInButton } from '@clerk/clerk-react'
 import { Button } from './ui/button'
-
+import { Link } from 'react-router'
 
 function Header() {
     const {user, isSignedIn} = useUser()
   return (
     <div className='flex justify-between items-center border-2 shadow-sm p-5'>
-        <img src='/assets/logo.svg' alt="logo" width={30} height={20}/>
+        <Link to={'/'}>
+        <img src='/assets/logo.svg' alt="logo" width={30} height={20} className=''/>
+        </Link>
 
         <ul className='hidden md:flex gap-20'>
             <li className='font-medium hover:scale-105 transition-all cursor-pointer hover:text-primary'>Home</li>
@@ -19,7 +21,10 @@ function Header() {
         {isSignedIn ? (
             <div className='flex gap-5'>
                 <UserButton className="focus:outline-none" />
-                <Button>New post</Button>
+                <Link to={'/profil'}>
+            <Button>Listing</Button>
+            </Link>
+                
             </div>
                 
         ) : (
@@ -27,7 +32,9 @@ function Header() {
                 <SignInButton mode='modal' forceRedirectUrl='/'>
                     <Button>Sing In</Button>
                 </SignInButton>
-                <Button className="bg-slate-600">New post</Button>
+                <Link to={'/profil'}>
+                    <Button className="">Listing</Button>
+                </Link>
             </div>
         )}
 

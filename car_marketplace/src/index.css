@@ -54,7 +54,7 @@
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: #131eec;
   text-decoration: inherit;
 }
 a:hover {
@@ -81,27 +81,27 @@ h1 {
   line-height: 1.1;
 }
 
-button {
+/* button {
   border-radius: 8px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
-  font-size: 1em;
+  font-size: 12px;
   font-weight: 500;
   font-family: inherit;
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
   transition: 0.5s;
-}
-button:hover {
+} */
+/* button:hover {
   border-color: #646cff;
   outline:none;
   transform: scale(0.95);
-}
- button:active{
+} */
+ /* button:active{
     outline:none;
     transform: scale(1.1);
-  }
+  } */
 
 button:focus,
 button:focus-visible {
@@ -122,11 +122,13 @@ button:focus-visible {
     transform: scale(0.95);
   }
   button {
-    background-color: #f9f9f9;
-    color:black;
+    border: 1px solid #e3e2e2;
+    background-color: #ffffff;
+    color:rgb(0, 0, 0);
     transition: 0.25s;
+
   }
-  button:hover{
+  /* button:hover{
     outline:none;
     transform: scale(0.95);
   }
@@ -134,7 +136,7 @@ button:focus-visible {
   button:active{
     outline:none;
     transform: scale(1.1);
-  }
+  } */
 }
 
 .dark {
