@@ -13,7 +13,7 @@ function Hero() {
         <img
           src="/assets/hero_car_0.png"
           alt="hero_image"
-          className="absolute bottom-0 w-2/3 pt-5 transform translate-y-[50px]"
+          className="absolute bottom-0 md:w-2/3 pt-5  transform lg:translate-y-[100px] transition-all"
         />
       </div>
     </div>

@@ -5,7 +5,7 @@ import Data from '@/shared/data';
 
 function Category() {
   return (
-    <div className='mt-20 min-h-[300px]'>
+    <div className='mt-40 min-h-[300px]'>
         <h2 className='font-bold text-3xl text-center pt-10'>Browse By Cateogies</h2>
         <div className='grid grid-cols-2 sm:grid-cols-5 md:grid-cols-5 lg:grid-cols-10 gap-5 px-5 mt-10'>
             {Data.Categories.map((category) => (

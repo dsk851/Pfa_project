@@ -12,7 +12,7 @@ import {
 function MostSearchCar() {
   // console.log(FakerData.CarList);
   return (
-    <div className=" min-h-[500px] bg-gray-50">
+    <div className="min-h-[500px] bg-gray-50">
       <h2 className="font-bold text-3xl text-center pt-10">
         Most Searched Cars
       </h2>
