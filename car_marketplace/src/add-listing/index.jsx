@@ -145,11 +145,12 @@ function Add_listing() {
           </div>
           {/* CAR IMAGES  */}
           <Separator className="my-5"/> 
-          <UploadImages/>
+          
           <div className="flex justify-center md:justify-end">
             <Button className='w-[200px]' onClick={(e)=>onsubmit(e)}>Submit</Button>
           </div>
         </form>
+        <UploadImages/>
     </div>
   );
 }

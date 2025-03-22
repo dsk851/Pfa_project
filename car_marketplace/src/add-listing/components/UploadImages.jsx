@@ -1,10 +1,17 @@
+
 import React from "react";
 import { useState, useEffect } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
+import {Button} from "@/components/ui/button";
+
 
 function UploadImages() {
-  const [selectedFiles, setSelectedFiles] = useState([]);
 
+  const [selectedFiles, setSelectedFiles] = useState([]);
+  const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
+  const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
+
+const url = 'https://api.cloudinary.com/v1_1/'+CLOUD_NAME+'/image/upload';
   const onFileselected = (e) => {
     const files = e.target.files;
     console.log(files);
@@ -15,7 +22,21 @@ function UploadImages() {
   };
 
   const UploadImages=()=>{
-    
+    if(selectedFiles.length===0){
+      console.log('No file selected');
+      return;
+    }else{
+    const formData = new FormData();
+    selectedFiles.map((file)=>formData.append('file',file));
+    formData.append('upload_preset',UPLOAD_PRESET);
+    console.log(CLOUD_NAME, UPLOAD_PRESET);
+
+    fetch(url,{
+      method:'POST',
+      body:formData
+    }).then((response)=>response.json())
+    .then((data)=>console.log(data))
+    .catch((error)=>console.error(error, 'erreur lors de l\'upload'));}
   }
   
   const onImageRemove = (file,index) =>{
@@ -54,6 +75,7 @@ function UploadImages() {
           onChange={onFileselected}
         />
       </div>
+      <Button className='mt-5' onClick={UploadImages}> Upload image </Button>
     </div>
   );
 }
