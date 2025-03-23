@@ -27,3 +27,8 @@ export const CarListing = pgTable('car_listing', {
   features:json('features'),
 });
 
+export const CarImages = pgTable('car_images', {
+  id:serial('id').primaryKey(),
+  imageUrl:varchar('imageUrl').notNull(),
+  carListingId:integer('carListingId').notNull().references(()=>CarListing.id)
+})

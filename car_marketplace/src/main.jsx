@@ -7,6 +7,8 @@ import Contact from './contact'
 import { ClerkProvider } from '@clerk/clerk-react'
 import Profile from './profil'
 import Add_listing from './add-listing'
+import { Toaster } from "@/components/ui/sonner"
+
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
 
@@ -36,6 +38,7 @@ createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">
       <RouterProvider router={router} />
+      <Toaster/>
     </ClerkProvider>
   </StrictMode>
 )
