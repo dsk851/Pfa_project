@@ -56,15 +56,14 @@ function Add_listing() {
         .insert(CarListing)
         .values(finalData)
         .returning({ id: CarListing.id });
-        Toaster('Please wait while we save your data', 'info')
       if (result) {
         console.log("Data inserted successfully");
         setTriggerUploadImages(result[0]?.id);
-        setLoader(false);
       }
     } catch (err) {
-      setLoader(false);
       console.log("savedata error", err);
+    }finally{
+      setLoader(false);
     }
   };
 

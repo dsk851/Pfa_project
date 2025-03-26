@@ -1,5 +1,5 @@
 import React from "react";
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect} from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { CarImages } from "../../../configs/schema";
@@ -11,7 +11,7 @@ function UploadImages({ TriggerUploadImages, setLoader }) {
   const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
   const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
 
-  const uploadImagesToServer = useCallback(async () => {
+  const uploadImagesToServer = async () => {
     setLoader(true);
     if (selectedFiles.length === 0) {
       console.log("No file selected");
@@ -36,25 +36,26 @@ function UploadImages({ TriggerUploadImages, setLoader }) {
         const data = await response.json();
         const uploadedUrl = data.secure_url;
         console.log("Uploaded Image URL:", data.secure_url);
-
         await db.insert(CarImages).values({
           imageUrl: uploadedUrl,
           carListingId: TriggerUploadImages,
         });
+        setLoader(false);
         uploadedUrls.push(data.secure_url); // Store each image URL
       } catch (error) {
         console.error("Error uploading file:", error);
       }
     }
     console.log("All uploaded image URLs:", uploadedUrls);
-  }, [selectedFiles, UPLOAD_PRESET, url, TriggerUploadImages,setLoader]);
+  };
 
 
   useEffect(() => {
     if (TriggerUploadImages) {
       uploadImagesToServer();
     }
-  }, [TriggerUploadImages, uploadImagesToServer]);
+  }, [TriggerUploadImages]);
+
   const onFileselected = (e) => {
     const files = e.target.files;
     console.log(files);
@@ -63,10 +64,14 @@ function UploadImages({ TriggerUploadImages, setLoader }) {
       setSelectedFiles((prev) => [...prev, file]);
     }
   };
+
+
   const onImageRemove = (file, index) => {
     const result = selectedFiles.filter((item) => item != file);
     setSelectedFiles(result);
   };
+
+
   useEffect(() => {
     console.log("nouvel etat images : ", selectedFiles);
   }, [selectedFiles]);
