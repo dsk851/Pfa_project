@@ -14,7 +14,11 @@ import { db } from "../../configs";
 import IconField from "./components/IconField";
 import { dotPulse } from "ldrs";
 dotPulse.register();
-import { Toaster } from "../../src/components/ui/sonner"
+import { Toaster } from "../../src/components/ui/sonner";
+import { useUser } from "@clerk/clerk-react";
+import moment from "moment";
+import { useNavigate } from "react-router";
+
 
 function Add_listing() {
   const [formData, setFormaData] = useState([]);
@@ -22,6 +26,8 @@ function Add_listing() {
   const [finalData, setFinalData] = useState({});
   const [TriggerUploadImages, setTriggerUploadImages] = useState();
   const [loader, setLoader] = useState(false);
+  const { user } = useUser();
+  const navigate= useNavigate();
 
   /**
    * @param {*} name
@@ -54,7 +60,12 @@ function Add_listing() {
       setLoader(true);
       const result = await db
         .insert(CarListing)
-        .values(finalData)
+        .values({
+          ...finalData,
+          createdBy: user?.primaryEmailAddress.emailAddress,
+          createdAt: moment().format("YYYY-MM-DD HH:mm:ss"),
+          updatedAt: moment().format("YYYY-MM-DD HH:mm:ss"),
+        })
         .returning({ id: CarListing.id });
       if (result) {
         console.log("Data inserted successfully");
@@ -62,7 +73,7 @@ function Add_listing() {
       }
     } catch (err) {
       console.log("savedata error", err);
-    }finally{
+    } finally {
       setLoader(false);
     }
   };
@@ -165,7 +176,7 @@ function Add_listing() {
         <Separator className="my-5" />
         <UploadImages
           TriggerUploadImages={TriggerUploadImages}
-          setLoader={(v) => setLoader(v)}
+          setLoader={(v) => {setLoader(v); navigate("/profil")}}
         />
         <div className="flex justify-center md:justify-end">
           <Button

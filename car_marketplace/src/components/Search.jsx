@@ -45,7 +45,7 @@ function Search() {
         </SelectContent>
       </Select>
       <Separator orientation="vertical" className="hidden md:block h-6 border-gray-300"/>
-      <FaSearch className="text-[40px] rounded-full bg-blue-500 flex items-center justify-center text-white p-3 cursor-pointer hover:bg-blue-600 active:bg-blue-700 active:scale-110 transition-all" />
+      <FaSearch className="text-[40px] rounded-full bg-primary flex items-center justify-center text-white p-3 cursor-pointer hover:bg-blue-600 active:bg-blue-700 active:scale-110 transition-all" />
     </div>
   )
 }

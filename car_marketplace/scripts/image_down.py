@@ -1,36 +1,47 @@
-import os
 import requests
 from bs4 import BeautifulSoup
+import os
 
-def download_images(query, num_images, save_folder):
-    if not os.path.exists(save_folder):
-        os.makedirs(save_folder)
+# URL de la page Pexels
+url = "https://www.pexels.com/fr-fr/chercher/voiture/"
 
-    search_url = f"https://www.google.com/search?q={query}&tbm=isch&tbs=isz:l"  # 'isz:l' filter for large images
-    headers = {
-        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.3"}
+# En-tête pour éviter d'être bloqué
+headers = {
+    'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+}
 
-    response = requests.get(search_url, headers=headers)
+# Créer un dossier pour les images
+if not os.path.exists('images'):
+    os.makedirs('images')
+
+# Récupérer la page
+try:
+    response = requests.get(url, headers=headers)
+    response.raise_for_status()  # Vérifie si la requête a réussi
     soup = BeautifulSoup(response.text, 'html.parser')
-    images = []
-    for img in soup.find_all('img', limit=num_images*2):
-        if 'src' in img.attrs:
-            images.append(img)
-        if len(images) >= num_images:
-            break
+except requests.exceptions.RequestException as e:
+    print(f"Erreur lors de la récupération de la page : {e}")
+    exit()
+    # Vérifier si l'accès au site est interdit
+    if response.status_code == 403:
+        print("Accès interdit au site. Veuillez vérifier les en-têtes ou utiliser une autre méthode.")
+        exit()
+# Trouver les liens des images
+image_links = []
+import time
 
-    for i, img in enumerate(images):
-        img_url = img['src']
-        try:
-            img_data = requests.get(img_url).content
-            with open(os.path.join(save_folder, f'car_{i+1}.jpg'), 'wb') as handler:
-                handler.write(img_data)
-            print(f"Image {i+1} downloaded successfully")
-        except Exception as e:
-            print(f"Could not download image {i+1}: {e}")
+for img in soup.find_all('img'):
+    if img.get('src'):
+        image_links.append(img['src'])
 
-if __name__ == "__main__":
-    query = "high quality car"
-    num_images = int(input("Enter the number of car images to download: "))
-    save_folder = "downloaded_car_images"
-    download_images(query, num_images, save_folder)
+for link in image_links:
+    filename = link.split('/')[-1]
+    try:
+        response = requests.get(link, headers=headers, timeout=10)
+        response.raise_for_status()  # Vérifie si la requête a réussi
+        with open(f'images/{filename}', 'wb') as file:
+            file.write(response.content)
+        print(f"Téléchargement de {filename} réussi.")
+        time.sleep(1)  # Ajouter un délai pour éviter d'être bloqué
+    except requests.exceptions.RequestException as e:
+        print(f"Erreur lors du téléchargement de {link} : {e}")
