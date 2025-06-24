@@ -1,12 +1,26 @@
 import { FaCar, FaTruck, FaMotorcycle, FaBus, FaTaxi, FaShuttleVan, FaCarSide } from 'react-icons/fa';
 
 const carMakes=[
-    {id:1, name:'Toyota'},
-    {id:2, name:'Honda'},
-    {id:3, name:'BMW'},
-    {id:4, name:'Mercedes'},
-    {id:5, name:'Ford'},
-    {id:6, name:'Nissan'},
+    { id: 1, name: 'Toyota' },
+  { id: 2, name: 'Honda' },
+  { id: 3, name: 'BMW' },
+  { id: 4, name: 'Mercedes' },
+  { id: 5, name: 'Audi' },
+  { id: 6, name: 'Ford' },
+  { id: 7, name: 'Chevrolet' },
+  { id: 8, name: 'Nissan' },
+  { id: 9, name: 'Hyundai' },
+  { id: 10, name: 'Kia' },
+  { id: 11, name: 'Mazda' },
+  { id: 12, name: 'Subaru' },
+  { id: 13, name: 'Volkswagen' },
+  { id: 14, name: 'Volvo' },
+  { id: 15, name: 'Porsche' },
+  { id: 16, name: 'Jaguar' },
+  { id: 17, name: 'Land Rover' },
+  { id: 18, name: 'Tesla' },
+  { id: 19, name: 'Lexus' },
+  { id: 20, name: 'Acura' }
 ]
 
 const Pricing=[

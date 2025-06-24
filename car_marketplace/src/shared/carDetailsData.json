@@ -42,7 +42,7 @@
       "label": "Category",
       "name": "category",
       "type": "select",
-      "options": ["Sedan", "SUV", "Truck", "Coupe", "Convertible", "Hatchback"],
+      "options": ["Sedan", "SUV", "Truck", "Coupe", "Convertible", "Van","Wagon","Crossover","Sport Car", "Hatchback"],
       "required": true,
       "column": 2,
       "icon": "FaLayerGroup"
@@ -60,7 +60,7 @@
       "label": "Make",
       "name": "make",
       "type": "select",
-      "options": ["Toyota", "Honda", "BMW", "Mercedes", "Audi", "Ford"],
+      "options": ["Toyota", "Honda", "BMW", "Mercedes", "Audi", "Ford", "Chevrolet", "Nissan", "Hyundai", "Kia", "Mazda", "Subaru", "Volkswagen", "Volvo", "Porsche", "Jaguar", "Land Rover", "Tesla", "Lexus", "Acura"],
       "required": true,
       "column": 2,
       "icon": "FaIndustry"
@@ -153,7 +153,7 @@
       "label": "Cylinder",
       "name": "cylinder",
       "type": "select",
-      "options": ["3", "4", "6", "8", "12"],
+      "options": [3, 4, 6, 8, 12],
       "required": false,
       "column": 3,
       "icon": "FaCog"
@@ -171,7 +171,7 @@
       "label": "Number of Doors",
       "name": "doors",
       "type": "select",
-      "options": ["2", "4", "5"],
+      "options": [2, 4, 5],
       "required": true,
       "column": 3,
       "icon": "FaDoorOpen"
@@ -180,7 +180,7 @@
       "label": "Offer Type",
       "name": "offer_type",
       "type": "select",
-      "options": ["For Sale", "For Rent", "Lease"],
+      "options": ["For Sale", "For Rent", "For Lease"],
       "required": true,
       "column": 4,
       "icon": "FaHandshake"

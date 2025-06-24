@@ -24,14 +24,17 @@ export const CarListing = pgTable('car_listing', {
   doors: integer('doors').notNull(),
   offer_type: varchar('offer_type', { length: 50 }).notNull(),
   description: text('description').notNull(),
-  features:json('features'),
+  features: json('features'),
   createdBy: varchar('createdBy').notNull(),
-  createdAt: varchar('createdAt').notNull(),
+  username:varchar('username').notNull(),
+  createdAt: varchar('createdAt').notNull().default('Takashi'),
+  userImageUrl: varchar('userImageUrl').notNull().default('https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'),
   updatedAt: varchar('updatedAt').notNull(),
+
 });
 
 export const CarImages = pgTable('car_images', {
   id:serial('id').primaryKey(),
   imageUrl:varchar('imageUrl').notNull(),
-  carListingId:integer('carListingId').notNull().references(()=>CarListing.id)
+  carListingId:integer('carListingId').notNull().references(()=>CarListing.id, {onDelete: 'cascade'}),
 })

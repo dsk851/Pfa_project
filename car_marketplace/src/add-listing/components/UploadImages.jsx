@@ -4,12 +4,27 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import { CarImages } from "../../../configs/schema";
 import { db } from "../../../configs";
+import { eq } from "drizzle-orm";
 
-function UploadImages({ TriggerUploadImages, setLoader }) {
+function UploadImages({ TriggerUploadImages, setLoader, carInfo,mode }) {
+  const [EditCarImages, setEditCarImages] = useState([]);
   const [selectedFiles, setSelectedFiles] = useState([]);
   const CLOUD_NAME = import.meta.env.VITE_CLOUDINARY_CLOUD_NAME;
   const UPLOAD_PRESET = import.meta.env.VITE_CLOUDINARY_UPLOAD_PRESET;
   const url = `https://api.cloudinary.com/v1_1/${CLOUD_NAME}/image/upload`;
+
+  useEffect(() => {
+    setEditCarImages([]);
+    if (mode === "edit") {
+      carInfo?.images.forEach((item) => {
+        setEditCarImages((prev) => [...prev, item?.imageUrl]);
+        console.log("carInfo", carInfo);
+        console.log("item", item?.imageUrl);
+        console.log("EditCarImages", EditCarImages);
+      }
+      );
+    }
+  }, [carInfo]);
 
   const uploadImagesToServer = async () => {
     setLoader(true);
@@ -49,7 +64,6 @@ function UploadImages({ TriggerUploadImages, setLoader }) {
     console.log("All uploaded image URLs:", uploadedUrls);
   };
 
-
   useEffect(() => {
     if (TriggerUploadImages) {
       uploadImagesToServer();
@@ -71,38 +85,86 @@ function UploadImages({ TriggerUploadImages, setLoader }) {
     setSelectedFiles(result);
   };
 
+  const onImageRemoveFromDB = async (file, index) => {
+    console.log("file", carInfo?.images[index]);
+    const result = await db.delete(CarImages).where(eq(CarImages.id, carInfo?.images[index]?.id));
+    if (result) {
+    console.log("Image deleted successfully");
+    const updatedCarInfo = { ...carInfo };
+    updatedCarInfo.images = updatedCarInfo.images.filter((_, i) => i !== index);
+    setEditCarImages(updatedCarInfo);
+      console.log("result de la suppression", result) ;
+    }
+  }
+
 
   useEffect(() => {
     console.log("nouvel etat images : ", selectedFiles);
   }, [selectedFiles]);
 
   return (
-    <div className="px-5">
-      <h2 className="font-bold text-xl my-5">Upload Car Images</h2>
-      <div className="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-5">
+    <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 mt-6">
+
+      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+        {/* Images existantes (mode edit) */}
+        {mode === "edit" &&
+          EditCarImages.map((file, index) => (
+            <div key={index} className="group relative">
+              <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+                <img
+                  src={file}
+                  alt="car"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+                />
+              </div>
+              <button
+                onClick={() => onImageRemoveFromDB(file, index)}
+                className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 shadow-lg transition-colors duration-200"
+              >
+                <FaRegTrashAlt className="w-3 h-3" />
+              </button>
+            </div>
+          ))}
+
+        {/* Nouvelles images sélectionnées */}
         {selectedFiles.map((file, index) => (
-          <div
-            key={index}
-            className="flex flex-col justify-center items-center"
-          >
-            <img
-              src={URL.createObjectURL(file)}
-              alt="car"
-              className="w-full h-[150px] object-cover rounded-xl"
-            />
-            <h2
-              className="p-2 mt-1 rounded-xl flex justify-center w-full  bg-red-100 text-red-600 text-xl hover:bg-red-500 hover:text-white cursor-pointer transition-colors duration-300"
+          <div key={index} className="group relative">
+            <div className="aspect-square bg-gray-100 rounded-lg overflow-hidden">
+              <img
+                src={URL.createObjectURL(file)}
+                alt="car"
+                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+              />
+            </div>
+            <button
               onClick={() => onImageRemove(file, index)}
+              className="absolute -top-2 -right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-1.5 shadow-lg transition-colors duration-200"
             >
-              <FaRegTrashAlt />
-            </h2>
+              <FaRegTrashAlt className="w-3 h-3" />
+            </button>
           </div>
         ))}
-        <label htmlFor="upload-images">
-          <div className="flex justify-center items-center cursor-pointer hover:shadow-md transition-shadow duration-400 rounded-xl bg-blue-100 h-[150px]">
-            <h2 className="text-lg font-bold text-center text-primary ">+</h2>
+
+        {/* Zone d'upload */}
+        <label htmlFor="upload-images" className="cursor-pointer">
+          <div className="aspect-square bg-blue-50 hover:bg-blue-100 border-2 border-dashed border-blue-300 hover:border-blue-400 rounded-lg flex flex-col items-center justify-center transition-all duration-200 group">
+            <svg
+              className="w-8 h-8 text-blue-500 mb-2 group-hover:scale-110 transition-transform duration-200"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              />
+            </svg>
+            <span className="text-sm font-medium text-blue-600">Ajouter</span>
           </div>
         </label>
+
         <input
           type="file"
           multiple={true}

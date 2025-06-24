@@ -8,6 +8,9 @@ import { ClerkProvider } from '@clerk/clerk-react'
 import Profile from './profil'
 import Add_listing from './add-listing'
 import { Toaster } from "@/components/ui/sonner"
+import SearchByCategory from './search/[category]'
+import SearchByOptions from './search'
+import SearchById from './listing/[item]'
 
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -18,22 +21,34 @@ if (!PUBLISHABLE_KEY) {
 
 const router = createBrowserRouter([
   {
-    path: '/',
-    element: <Home/>,
+    path: "/",
+    element: <Home />,
   },
   {
-    path: '/contact',
+    path: "/contact",
     element: <Contact />,
   },
   {
-    path: '/profil',
-    element: <Profile/>
+    path: "/profil",
+    element: <Profile />,
   },
   {
-    path:'/add-listing',
-    element: <Add_listing/>
-  }
-])
+    path: "/add-listing",
+    element: <Add_listing />,
+  },
+  {
+    path: "/search/:category",
+    element: <SearchByCategory />,
+  },
+  {
+    path: "/search",
+    element: <SearchByOptions />,
+  },
+  {
+    path: "/item/:id",
+    element: <SearchById />,
+  },
+]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>
     <ClerkProvider publishableKey={PUBLISHABLE_KEY} afterSignOutUrl="/">

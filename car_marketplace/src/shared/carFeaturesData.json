@@ -119,24 +119,6 @@
       "label": "Power Steering",
       "name": "power_steering",
       "type": "checkbox"
-    },
-    {
-      "label": "Number of Speakers",
-      "name": "num_speakers",
-      "type": "dropdown",
-      "options": ["2", "4", "6", "8", "10+"]
-    },
-    {
-      "label": "Sound System",
-      "name": "sound_system",
-      "type": "dropdown",
-      "options": ["Standard", "Bose", "Harman Kardon", "JBL", "Bang & Olufsen"]
-    },
-    {
-      "label": "Seat Material",
-      "name": "seat_material",
-      "type": "dropdown",
-      "options": ["Fabric", "Leather", "Synthetic Leather", "Alcantara"]
     }
   ]
 }
