@@ -36,7 +36,7 @@ function Details({ carDetails }) {
                   className="group bg-gray-50 hover:bg-blue-50 rounded-lg p-4 transition-all duration-200 hover:shadow-md border border-gray-200 hover:border-blue-200"
                 >
                   <div className="flex items-center space-x-3">
-                    {/* Conteneur de l'icône avec effet hover */}
+
                     <div className="">
                       <IconField icon={item.icon} label={item.label} />
                     </div>

@@ -19,7 +19,7 @@ import { useUser } from "@clerk/clerk-react";
 import moment from "moment";
 import { useNavigate, useSearchParams } from "react-router";
 import {eq} from "drizzle-orm";
-import FormatResult from "@/shared/Service";
+import {FormatResult} from "@/shared/Service";
 import { toast } from "sonner";
 import Footer from "@/components/Footer";
 
@@ -155,7 +155,7 @@ function Add_listing() {
   // }, [finalData]);
 
   return (
-    <div>
+    <div className="mt-15">
       <Header />
       <div className="flex justify-between items-center px-10 py-3 ">
         <h2 className="font-bold text-xl md:text-3xl mt-5 mx-5">

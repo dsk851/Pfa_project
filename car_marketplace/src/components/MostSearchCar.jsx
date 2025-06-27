@@ -10,7 +10,7 @@ import {
 } from "@/components/ui/carousel";
 import { db } from "../../configs";
 import { CarImages, CarListing } from "../../configs/schema";
-import FormatResult from "@/shared/Service";
+import {FormatResult} from "@/shared/Service";
 import { desc,eq } from "drizzle-orm";
 import { useEffect} from "react";
 
@@ -45,7 +45,7 @@ function MostSearchCar() {
   }}>
           <CarouselContent className="min-h-[350px] ">
             {carList.map((car, index) => (
-            <CarouselItem className="basis-full sm:basis-1/2 lg:basis-1/4 flex items-center justify-center">    
+            <CarouselItem className="basis-full sm:basis-1/2 lg:basis-1/4 flex items-center justify-center p-4">    
                 <CarItem key={index} car={car} />
             </CarouselItem>
             ))}

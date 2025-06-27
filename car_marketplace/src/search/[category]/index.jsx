@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from 'react'
 import Header from '@/components/Header'
 import SearchBar from '@/components/Search'
-import { useParams } from 'react-router' // Correction de l'import
+import { useParams } from 'react-router' 
 import { db } from "../../../configs"
 import { CarImages, CarListing } from "../../../configs/schema"
 import { desc, eq } from "drizzle-orm"
-import FormatResult from "../../shared/Service"
+import {FormatResult} from "../../shared/Service"
 import CarItem from "../../components/CarItem"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Button } from "@/components/ui/button"
-import { Link } from "react-router" // Correction de l'import
+import { Link } from "react-router" 
 
 function SearchByCategory() {
   const { category } = useParams()
@@ -22,13 +22,12 @@ function SearchByCategory() {
       try {
         setLoading(true)
         
-        // Récupérer les annonces de la catégorie spécifiée
         const result = await db
           .select()
           .from(CarListing)
           .leftJoin(CarImages, eq(CarListing.id, CarImages.carListingId))
           .where(eq(CarListing.category, category))
-          .orderBy(desc(CarListing.createdAt)) // Tri par date de création
+          .orderBy(desc(CarListing.createdAt)) 
         
         const formattedResults = FormatResult(result)
         setCarList(formattedResults)
@@ -46,14 +45,14 @@ function SearchByCategory() {
   }, [category])
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 mt-15">
       <Header />
 
       <div className="bg-gray-700 py-2">
         <SearchBar />
       </div>
 
-      <div className="container m-auto py-4">
+      <div className="container m-auto p-4">
         <div className="flex flex-col gap-2 mb-8">
           <h2 className="font-bold text-2xl md:text-4xl capitalize">
             {category} Cars
@@ -72,7 +71,7 @@ function SearchByCategory() {
         ) : carList.length === 0 ? (
           <div className="flex flex-col items-center justify-center py-12 bg-white rounded-lg shadow-sm">
             <p className="text-gray-500 text-lg mb-4">No {category} cars found</p>
-            <Link to="/" className="text-primary-dark">
+            <Link to="/listing" className="text-primary-dark">
               <Button>Browse All Cars</Button>
             </Link>
           </div>

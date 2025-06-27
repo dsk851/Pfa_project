@@ -11,6 +11,7 @@ import { Toaster } from "@/components/ui/sonner"
 import SearchByCategory from './search/[category]'
 import SearchByOptions from './search'
 import SearchById from './listing/[item]'
+import All_items from './listing/all_items'
 
 
 const PUBLISHABLE_KEY = import.meta.env.VITE_CLERK_PUBLISHABLE_KEY
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
     path: "/item/:id",
     element: <SearchById />,
   },
+  {
+    path: "/listing",
+    element: <All_items/>,
+  }
 ]);
 createRoot(document.getElementById('root')).render(
   <StrictMode>

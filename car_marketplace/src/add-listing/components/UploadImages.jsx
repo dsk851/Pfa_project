@@ -103,7 +103,7 @@ function UploadImages({ TriggerUploadImages, setLoader, carInfo,mode }) {
   }, [selectedFiles]);
 
   return (
-    <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 mt-6">
+    <div className="bg-white rounded-xl shadow-lg border border-gray-100 p-6 mt-6"> 
 
       <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
         {/* Images existantes (mode edit) */}

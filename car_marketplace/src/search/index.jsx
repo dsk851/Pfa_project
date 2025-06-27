@@ -8,7 +8,7 @@ import { eq, and, lte, desc } from "drizzle-orm";
 import { Skeleton } from "@/components/ui/skeleton";
 import CarItem from "@/components/CarItem";
 import Footer from "@/components/Footer";
-import FormatResult from "../shared/Service";
+import {FormatResult} from "../shared/Service";
 
 function SearchByOptions() {
   const [loading, setLoading] = useState(true);
@@ -17,7 +17,6 @@ function SearchByOptions() {
     const carStatus = searchParams.get("cars");
     const carMake = searchParams.get("make");
     const priceParam = searchParams.get("price");
-    const all = searchParams.get("all");
 
   useEffect(() => {
     async function fetchCars() {
@@ -29,7 +28,6 @@ function SearchByOptions() {
           .leftJoin(CarImages, eq(CarListing.id, CarImages.carListingId))
           .orderBy(desc(CarListing.selling_price));
 
-        // Extraire le prix maximum si présent
         const maxPrice = priceParam?.match(/[\d,]+/) 
           ? parseInt(priceParam.match(/[\d,]+/)[0].replace(/,/g, "")) 
           : null;
@@ -79,10 +77,10 @@ function SearchByOptions() {
   }, [searchParams]);
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gray-50 mt-10 pt-5">
       <Header />
 
-      <div className="mb-8 bg-gray-800 w-full">
+      <div className=" bg-gray-800 w-full">
         <SearchBar />
       </div>
 

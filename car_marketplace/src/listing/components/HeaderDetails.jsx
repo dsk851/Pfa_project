@@ -16,7 +16,7 @@ function HeaderDetails({ carDetails }) {
     carDetails?.transmission &&
     carDetails?.fuel_type ? (
     <div className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden mt-6">
-      {/* En-tête avec gradient */}
+      
       <div className="px-4 py-6">
         <h2 className="font-bold text-gray-900 mb-2 text-4xl">
           {carDetails.title}

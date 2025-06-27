@@ -12,22 +12,22 @@ import Footer from './components/Footer'
 function Home() {
   return (
     <div>
-
       {/* HEADER */}
-        <Header />
-      {/* HERO */}
+      <Header />
+      <div className='w-full mt-15'>
+        {/* HERO */}
         <Hero />
-      {/* CATEGORIES*/}
+        {/* CATEGORIES*/}
         <Category />
-      {/* MOST SEARCH CAR */}
+        {/* MOST SEARCH CAR */}
         <MostSearchCar />
         {/* INFO SECTION */}
         <InfoSection />
         {/* FOOTER */}
-        <Footer/>
+        <Footer />
+      </div>
     </div>
-      
-  )
+  );
 }
 
 export default Home

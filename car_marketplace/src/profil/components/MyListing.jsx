@@ -5,7 +5,7 @@ import { db } from "../../../configs";
 import { CarImages, CarListing } from "../../../configs/schema";
 import { desc, eq } from "drizzle-orm";
 import { useUser } from "@clerk/clerk-react";
-import FormatResult from "./../../shared/Service";
+import {FormatResult} from "./../../shared/Service";
 import CarItem from "../../components/CarItem";
 import { Skeleton } from "@/components/ui/skeleton"; // Pour un meilleur loading state
 import  Delete  from "../../add-listing/components/Delete"; 
