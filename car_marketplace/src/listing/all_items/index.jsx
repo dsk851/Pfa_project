@@ -59,11 +59,9 @@ function All_items() {
 
   return (
     <div className="min-h-screen bg-gray-50">
-        <Header/>
+      <Header />
       <div className="pt-10 pb-20 mt-15">
-        <h2 className="pl-20 ml-15 font-bold text-3xl mb-8">
-          All listing
-        </h2>
+        <h2 className="pl-20 ml-15 font-bold text-3xl mb-8 sm:text-xl">All listing</h2>
 
         {loading ? (
           <div className="flex justify-center items-center min-h-[400px]">
@@ -92,7 +90,8 @@ function All_items() {
               </div>
               <p className="text-gray-500 text-lg">No listing founded</p>
               <p className="text-gray-400 text-sm mt-2">
-                Comme back later or click on the button in the top right corner to create your first listing...
+                Comme back later or click on the button in the top right corner
+                to create your first listing...
               </p>
             </div>
           </div>
@@ -111,7 +110,6 @@ function All_items() {
                 ))}
               </div>
 
-              
               <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-16">
                 <div className="flex items-center gap-2">
                   <button
@@ -136,8 +134,11 @@ function All_items() {
                   </button>
 
                   <div className="flex items-center gap-2 mx-4">
-                    <span className="text-gray-700 font-medium bg-white px-4 py-2 rounded-lg border border-gray-300">
+                    <span className="sm:hidden text-gray-700 font-medium bg-white px-4 py-2 rounded-lg border border-gray-300">
                       Page {page} over {totalPages}
+                    </span>
+                    <span className="sm:block hidden text-gray-700 font-medium bg-white px-4 py-2 rounded-lg border border-gray-300">
+                      {page} over {totalPages}
                     </span>
                   </div>
 
@@ -164,7 +165,7 @@ function All_items() {
                 </div>
 
                 <div className="text-sm text-gray-500 text-center sm:text-left">
-                  Displaying {(page - 1) * LIMIT + 1} to {" "}
+                  Displaying {(page - 1) * LIMIT + 1} to{" "}
                   {Math.min(page * LIMIT, totalPages * LIMIT)} listings
                 </div>
               </div>
