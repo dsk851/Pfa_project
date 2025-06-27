@@ -1,5 +1,5 @@
 import React from "react";
-import carDetailsData from "./../../shared/carDetailsData";
+import carDetailsData from "./../../shared/carDetailsData.json";
 import IconField from "../../../src/add-listing/components/IconField";
 
 function Details({ carDetails }) {
