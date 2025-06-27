@@ -8,7 +8,7 @@ import TextAreaField from "./components/TextAreaField";
 import UploadImages from "./components/UploadImages";
 import { Checkbox } from "@/components/ui/checkbox";
 import React, { useState, useEffect } from "react";
-import carFeaturesData from "./../shared/CarFeaturesData.json";
+import carFeaturesData from "../shared/CarFeaturesData.json";
 import { CarListing, CarImages } from "../../configs/schema";
 import { db } from "../../configs";
 import IconField from "./components/IconField";
