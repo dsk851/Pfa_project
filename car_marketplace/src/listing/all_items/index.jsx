@@ -61,8 +61,9 @@ function All_items() {
     <div className="min-h-screen bg-gray-50">
       <Header />
       <div className="pt-10 pb-20 mt-15">
-        <h2 className="pl-20 ml-15 font-bold text-3xl mb-8 sm:text-xl">All listing</h2>
-
+        <h2 className="pl-20 ml-15 font-bold text-xl sm:text-3xl mb-8">
+          All listing
+        </h2>
         {loading ? (
           <div className="flex justify-center items-center min-h-[400px]">
             <div className="text-center">
