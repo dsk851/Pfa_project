@@ -1,7 +1,7 @@
 import { FaCar, FaTruck, FaMotorcycle, FaBus, FaTaxi, FaShuttleVan, FaCarSide } from 'react-icons/fa';
 
 import React from 'react'
-import Data from '@/shared/data';
+import Data from '@/shared/Data';
 import {Link} from 'react-router' 
 
 function Category() {
