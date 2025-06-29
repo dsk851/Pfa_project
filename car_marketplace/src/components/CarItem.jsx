@@ -8,7 +8,7 @@ import { Link } from "react-router";
 
 function CarItem({ car }) {
   if (!car) {
-    console.log("Pas de données de voiture reçues");
+    // console.log("Pas de données de voiture reçues");
     return null;
   }
 

@@ -18,9 +18,9 @@ function UploadImages({ TriggerUploadImages, setLoader, carInfo,mode }) {
     if (mode === "edit") {
       carInfo?.images.forEach((item) => {
         setEditCarImages((prev) => [...prev, item?.imageUrl]);
-        console.log("carInfo", carInfo);
-        console.log("item", item?.imageUrl);
-        console.log("EditCarImages", EditCarImages);
+        // console.log("carInfo", carInfo);
+        // console.log("item", item?.imageUrl);
+        // console.log("EditCarImages", EditCarImages);
       }
       );
     }
@@ -50,7 +50,7 @@ function UploadImages({ TriggerUploadImages, setLoader, carInfo,mode }) {
 
         const data = await response.json();
         const uploadedUrl = data.secure_url;
-        console.log("Uploaded Image URL:", data.secure_url);
+        // console.log("Uploaded Image URL:", data.secure_url);
         await db.insert(CarImages).values({
           imageUrl: uploadedUrl,
           carListingId: TriggerUploadImages,
@@ -61,7 +61,7 @@ function UploadImages({ TriggerUploadImages, setLoader, carInfo,mode }) {
         console.error("Error uploading file:", error);
       }
     }
-    console.log("All uploaded image URLs:", uploadedUrls);
+    // console.log("All uploaded image URLs:", uploadedUrls);
   };
 
   useEffect(() => {
@@ -72,7 +72,7 @@ function UploadImages({ TriggerUploadImages, setLoader, carInfo,mode }) {
 
   const onFileselected = (e) => {
     const files = e.target.files;
-    console.log(files);
+    // console.log(files);
     for (let i = 0; i < files?.length; i++) {
       const file = files[i];
       setSelectedFiles((prev) => [...prev, file]);
@@ -86,20 +86,20 @@ function UploadImages({ TriggerUploadImages, setLoader, carInfo,mode }) {
   };
 
   const onImageRemoveFromDB = async (file, index) => {
-    console.log("file", carInfo?.images[index]);
+    // console.log("file", carInfo?.images[index]);
     const result = await db.delete(CarImages).where(eq(CarImages.id, carInfo?.images[index]?.id));
     if (result) {
-    console.log("Image deleted successfully");
+    // console.log("Image deleted successfully");
     const updatedCarInfo = { ...carInfo };
     updatedCarInfo.images = updatedCarInfo.images.filter((_, i) => i !== index);
     setEditCarImages(updatedCarInfo);
-      console.log("result de la suppression", result) ;
+      // console.log("result de la suppression", result) ;
     }
   }
 
 
   useEffect(() => {
-    console.log("nouvel etat images : ", selectedFiles);
+    // console.log("nouvel etat images : ", selectedFiles);
   }, [selectedFiles]);
 
   return (

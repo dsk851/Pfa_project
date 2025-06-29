@@ -31,7 +31,7 @@ function MostSearchCar() {
       .limit(10);
 
     const resp = FormatResult(result);
-    console.log(resp);
+    // console.log(resp);
     setCarList(resp);
     setLoading(false);
   };

@@ -14,15 +14,17 @@ function HeaderDetails({ carDetails }) {
     carDetails?.year &&
     carDetails?.mileage &&
     carDetails?.transmission &&
-    carDetails?.fuel_type ? (
+    carDetails?.fuel_type &&
+    carDetails?.updatedAt ? (
     <div className="bg-white rounded-xl shadow-md border border-gray-100 overflow-hidden mt-6">
       
-      <div className="px-4 py-6">
+      <div className="px-4 py-6 flex flex-col">
         <h2 className="font-bold text-gray-900 mb-2 text-4xl">
           {carDetails.title}
         </h2>
+        <span className="ml-2 text-[12px] text-gray-500">Posted on : {carDetails.updatedAt}</span>
         {carDetails.tagline && (
-          <p className="text-blue-600 text-sm font-medium bg-blue-200 px-3 py-1 rounded-full inline-block">
+          <p className="text-blue-600 text-sm font-medium bg-blue-200 w-fit mt-2 px-3 py-1 rounded-full inline-block">
             {carDetails.tagline}
           </p>
         )}

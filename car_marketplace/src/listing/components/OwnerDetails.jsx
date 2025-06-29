@@ -6,7 +6,7 @@ import { CreateSendBirdUser, createChannelWithCheck } from "@/shared/Service";
 import { useNavigate } from "react-router";
 
 function OwnerDetails({ data }) {
-  console.log("OwnerDetails data:", data);
+  // console.log("OwnerDetails data:", data);
   const { user } = useUser();
   const navigation = useNavigate(); 
 
@@ -37,7 +37,7 @@ function OwnerDetails({ data }) {
           profileUrl: profileUrl,
         });
 
-        console.log("SendBird user created:", clientResponse);
+        // console.log("SendBird user created:", clientResponse);
       } catch (error) {
         console.error("Error creating SendBird user:", error);
 
@@ -65,7 +65,7 @@ function OwnerDetails({ data }) {
           profileUrl: ownerProfileUrl,
         });
 
-        console.log("SendBird user(owner) created:", ownerResponse);
+        // console.log("SendBird user(owner) created:", ownerResponse);
       } catch (error) {
         console.error("Error creating SendBird user (owner):", error);
         
@@ -77,12 +77,12 @@ function OwnerDetails({ data }) {
 
     
       try {
-        console.log(
-          "Creating channel with ownerId:",
-          ownerId,
-          "and userId:",
-          userId
-        );
+        // console.log(
+        //   "Creating channel with ownerId:",
+        //   ownerId,
+        //   "and userId:",
+        //   userId
+        // );
 
         
         const clientData = {
@@ -104,7 +104,7 @@ function OwnerDetails({ data }) {
           title
         );
 
-        console.log("Channel created successfully:", channelResponse);
+        // console.log("Channel created successfully:", channelResponse);
         navigation("/profil?tab=inbox");
       } catch (error) {
         console.error("Error creating channel:", error);

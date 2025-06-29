@@ -33,9 +33,9 @@ function SearchById() {
       .from(CarListing)
       .leftJoin(CarImages, eq(CarListing.id, CarImages.carListingId))
       .where(eq(CarListing.id, id));
-    console.log("resulat", result);
+    // console.log("resulat", result);
     const resp = FormatResult(result);
-    console.log("response formate 1", resp);
+    // console.log("response formate 1", resp);
 
     setData((prevData) => ({
       ...prevData,

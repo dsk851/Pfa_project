@@ -59,8 +59,8 @@ function Add_listing() {
     // setFinalData({
     //   ...FormData,FeaturesData,});
 
-    console.log(finalData);
-    console.log("response",resp);
+    // console.log(finalData);
+    // console.log("response",resp);
   }
   /**
    * @param {*} name
@@ -85,7 +85,7 @@ function Add_listing() {
       [name]: value,
     }));
 
-    console.log({ ...formData, FeaturesData });
+    // console.log({ ...formData, FeaturesData });
   };
 
   const saveData = async () => {
@@ -103,8 +103,8 @@ function Add_listing() {
         })
         .returning({ id: CarListing.id });
       if (result) {
-        console.log("Data inserted successfully");
-        toast.success("Data inserted successfully");
+        // console.log("Data inserted successfully");
+        // toast.success("Data inserted successfully");
         setTriggerUploadImages(result[0]?.id);
       }
     } catch (err) {
@@ -116,7 +116,7 @@ function Add_listing() {
 
   const onsubmit = async (e) => {
     e.preventDefault();
-    console.log("Form data (submited): ", finalData);
+    // console.log("Form data (submited): ", finalData);
     if(mode === 'edit')
     {
       const result = await db.update(CarListing).set({
@@ -128,7 +128,7 @@ function Add_listing() {
       }).where(eq(CarListing.id, id)).returning({ id: CarListing.id });
       console.log(result);
       if (result) {
-        console.log("Data updated successfully");
+        // console.log("Data updated successfully");
         setTriggerUploadImages(result[0]?.id);
       }
       setLoader(false);
@@ -225,10 +225,7 @@ function Add_listing() {
                         {item?.label}
                       </h2>
                     </div>
-                  ) : // : <h2 className="text-start w-[80%]">{item?.label}</h2> &&
-                  //   item?.type === "dropdown" ? (
-                  //   <DropdownField item={item} handleInputChange={handleInputChange} />
-                  // )
+                  ) : 
                   null}
                 </div>
               );
